@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class KullaniciGirisi {
     public static void main(String[] args) {
         String userName, password, nwPass;
-        int reply;
 
 
         Scanner input = new Scanner(System.in);
@@ -17,28 +16,38 @@ public class KullaniciGirisi {
         if ((userName.equals("patika")) && password.equals("java123")) {
             System.out.print("Başarıyla Giriş Yaptınız!");
         } else {
-            System.out.print("Bilgileriniz Hatalıdır! Şifrenizi sıfırlamak ister misiniz? Evet için 1'e Hayır için 2'ye basınız.:");
+            System.out.print("Bilgileriniz Hatalıdır!");
         }
-        reply = input.nextInt();
 
-        switch (reply){
+        System.out.print("Şifrenizi Sıfırlamak İstiyorsanız 1'i İstemiyorsanız 2'yi Seçiniz:");
+        int reply = input.nextInt();
+        input.nextLine();
+
+        switch (reply) {
             case 1:
-            System.out.println("Yeni Şifrenizi Giriniz:");
-            nwPass = input.nextLine();
-            if (nwPass.equals("java123")){
-                System.out.println("Şifre oluşturulamadı, lütfen başka şifre giriniz.");
-            } else {
-                System.out.println("Şifre oluşturuldu");
-            } break;
+                System.out.print("Yeni Bir Parola Giriniz: ");
+                nwPass = input.nextLine();
+
+                if (nwPass.equals("java123")) {
+                    System.out.print("Şifre oluşturulamadı, lütfen başka şifre giriniz. ");
+                } else {
+                    System.out.print("Şifre oluşturuldu.");
+                    System.out.print("Yeni Parolanız: " + nwPass);
+                }
+
+                break;
+            case 2:
+                System.out.print("Parolanızı Sıfırlanmak istemediniz.");
+                break;
+            default:
+                System.out.println("Lütfen '1' veya '2' değerlerinden birini giriniz.");
+
 
         }
 
 
     }
-
-
 }
-
 
 
 
